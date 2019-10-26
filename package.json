@@ -4,9 +4,16 @@
   "description": "Back-end server code for the-complete-todo-application.",
   "main": "src/index.ts",
   "scripts": {
-    "test": "echo \"Error: no tests specified.\" && exit 1",
+    "prebuild": "tslint -c tslint.json -p tsconfig.json --fix",
+    "build": "tsc",
+
+    "preserver": "npm run build",
     "server": "nodemon .",
-    "start": "node ."
+
+    "prestart": "npm run build",
+    "start": "node .",
+
+    "test": "echo \"Error: no tests specified.\" && exit 1"
   },
   "repository": {
     "type": "git",
