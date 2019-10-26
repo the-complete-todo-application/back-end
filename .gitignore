@@ -5,3 +5,6 @@
 # dotenv files
 .env
 .env.test
+
+# typescript output files
+dist/

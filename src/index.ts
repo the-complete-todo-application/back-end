@@ -1,10 +1,10 @@
 // Initial imports
-const express = require("express");
-const helmet = require("helmet");
-const cors = require("cors");
+import cors from "cors";
+import express from "express";
+import helmet from "helmet";
 
 // Basic Server Setup
-const server = express();
+const server = express(); 
 server.use(helmet());
 server.use(express.json());
 server.use(cors());
@@ -16,5 +16,6 @@ server.get("/", (req, res) => {
     res.send("Well, here we are, huh..?");
 });
 
-const port = process.env.PORT || 5000;
+const port = 5000;
+// tslint:disable-next-line:no-console
 server.listen(port, () => console.log(`\n***Listening on Port ${port}***\n`));
