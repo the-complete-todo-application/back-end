@@ -4,7 +4,7 @@ import express from "express";
 import helmet from "helmet";
 
 // Basic Server Setup
-const server = express(); 
+const server = express();
 server.use(helmet());
 server.use(express.json());
 server.use(cors());
@@ -17,5 +17,4 @@ server.get("/", (req, res) => {
 });
 
 const port = 5000;
-// tslint:disable-next-line:no-console
 server.listen(port, () => console.log(`\n***Listening on Port ${port}***\n`));
