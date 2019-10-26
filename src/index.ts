@@ -10,9 +10,11 @@ server.use(express.json())
 server.use(cors())
 
 // Importing controllers
+//   -- Nothing yet!
 
 server.get("/", (req, res) => {
     res.send("Well, here we are, huh..?")
 })
 
-module.exports = server;
+const port = process.env.PORT || 5000;
+server.listen(port, () => console.log(`\n***Listening on Port ${port}***\n`))

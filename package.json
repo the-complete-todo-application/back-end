@@ -2,11 +2,11 @@
   "name": "back-end",
   "version": "0.0.1",
   "description": "Back-end server code for the-complete-todo-application.",
-  "main": "index.js",
+  "main": "src/index.ts",
   "scripts": {
-    "test": "jest --watchAll",
-    "server": "nodemon index.ts",
-    "start": "node index.ts"
+    "test": "echo \"Error: no tests specified.\" && exit 1",
+    "server": "nodemon .",
+    "start": "node ."
   },
   "repository": {
     "type": "git",
@@ -32,6 +32,7 @@
   },
   "devDependencies": {
     "jest": "^24.9.0",
-    "nodemon": "^1.19.4"
+    "nodemon": "^1.19.4",
+    "typescript": "^3.6.4"
   }
 }
