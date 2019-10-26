@@ -6,6 +6,7 @@
         "trailing-comma": [ false ],
         "no-console": false,
         "no-trailing-whitespace": false,
+        "no-consecutive-blank-lines": false,
         "variable-name": {
             "options": ["allow-snake-case"]
         }
