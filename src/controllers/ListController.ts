@@ -14,4 +14,9 @@ router.get("/byUser/:userid", async (req, res) => {
     res.status(200).json(listsByUser);
 });
 
+router.get("/byListId/:listid", async (req, res) => {
+    const list: IList = await listService.findByListId(req.params.listid);
+    res.status(200).json(list);
+});
+
 export default router;
