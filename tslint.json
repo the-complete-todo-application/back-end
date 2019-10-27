@@ -8,6 +8,8 @@
         "no-trailing-whitespace": false,
         "no-consecutive-blank-lines": false,
         "no-string-literal": false,
+        "object-literal-sort-keys": false,
+        "no-var-requires": false,
         "variable-name": {
             "options": ["allow-snake-case"]
         }
