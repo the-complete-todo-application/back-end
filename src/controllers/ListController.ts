@@ -9,4 +9,14 @@ router.get("/all", async (req, res) => {
     res.status(200).json(listOfLists);
 });
 
+router.get("/byUser/:userid", async (req, res) => {
+    const listsByUser: IList[] = await listService.findByUserId(req.params.userid);
+    res.status(200).json(listsByUser);
+});
+
+router.get("/byListId/:listid", async (req, res) => {
+    const list: IList = await listService.findByListId(req.params.listid);
+    res.status(200).json(list);
+});
+
 export default router;

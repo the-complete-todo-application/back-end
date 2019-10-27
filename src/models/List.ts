@@ -1,7 +1,7 @@
 /**
  * Entity
  * 
- * Table(name = `lists`)
+ * Table ( name = `lists`)
  */
 export default interface IList {
     readonly id?: number;

@@ -1,7 +1,7 @@
 /**
  * Entity
  * 
- * Table (name = `users`)
+ * Table ( name = `users`)
  */
 export default interface IUser {
     readonly id?: number;
