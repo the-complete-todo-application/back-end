@@ -1,4 +1,4 @@
-import db from "../configs/dbConfig"
+import db from "../configs/dbConfig";
 import ITodo from "../models/Todo";
 
 // Should not be public on production.
@@ -8,7 +8,7 @@ export const findAll = () => {
 };
 
 export const findById = (todoid: string) => {
-    return db<ITodo>("todos").where("id", "=", todoid);
+    return db<ITodo>("todos").where("id", "=", todoid).first();
 };
 
 export const findByList = (listid: string) => {
