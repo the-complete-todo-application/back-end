@@ -13,6 +13,6 @@ const seedData: IUserList[] = [
 ];
 
 export const seed = (knex: any) => {
-    return knex("lists").truncate()
-        .then(() => knex("lists").insert(seedData));
-});
+    return knex("userlists").truncate()
+        .then(() => knex("userlists").insert(seedData));
+};
