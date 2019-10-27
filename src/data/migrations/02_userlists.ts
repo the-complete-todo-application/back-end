@@ -1,6 +1,6 @@
 
 export const up = (knex: any) => knex.schema.createTable("userlists", (userlist: any) => {
-    userlist.increments();
+    userlist.increments("id");
     userlist.integer("user_id")
         .references("id")
         .inTable("users")

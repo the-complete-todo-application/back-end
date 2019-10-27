@@ -15,7 +15,7 @@ router.get("/byUser/:userid", async (req, res) => {
 });
 
 router.get("/byListId/:listid", async (req, res) => {
-    const list: IList = await listService.findByListId(req.params.listid);
+    const list: any = await listService.findByListId(req.params.listid);
     res.status(200).json(list);
 });
 

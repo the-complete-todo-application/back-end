@@ -1,7 +1,7 @@
 
 
 export const up = (knex: any) => knex.schema.createTable("users", (user: any) => {
-    user.increments();
+    user.increments("id");
     user.string("email")
         .notNullable()
         .unique();

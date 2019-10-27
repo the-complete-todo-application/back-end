@@ -11,7 +11,6 @@ export const findAll = () => {
 export const findByListId = (listid: string) => {
     return db<IList>("lists")
         .where("id", "=", listid)
-        .first();
 };
 
 export const findByUserId = async (userid: string) => {
