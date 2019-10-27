@@ -10,7 +10,5 @@ const seedData: IUser[] = [
 
 export const seed = (knex: any) => {
     return knex("users").truncate()
-        .then(() => {
-            return knex("users").insert(seedData);
-        });
+        .then(() => knex("users").insert(seedData));
 };
