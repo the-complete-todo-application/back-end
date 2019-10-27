@@ -4,14 +4,17 @@ import "dotenv/config";
 import express from "express";
 import helmet from "helmet";
 
+// Controllers
+import UserController from "./controllers/UserController";
+
 // Basic Server Setup
 const server = express();
+server.use(cors());
 server.use(helmet());
 server.use(express.json());
-server.use(cors());
 
 // Importing controllers
-//   -- Nothing yet!
+server.use("/users", UserController);
 
 server.get("/", (req, res) => {
     res.send("Well, here we are, huh..?");
