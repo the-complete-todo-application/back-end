@@ -1,11 +1,10 @@
-// REMINDER: This is created with a Java/Spring server brain
-
 /**
  * Entity
  * 
  * Table (name = `users`)
  */
 export default interface IUser {
+    readonly id?: number;
     email: string;
     password: string;
     first_name: string;
