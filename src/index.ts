@@ -5,6 +5,7 @@ import express from "express";
 import helmet from "helmet";
 
 // Controllers
+import ListController from "./controllers/ListController";
 import UserController from "./controllers/UserController";
 
 // Basic Server Setup
@@ -15,6 +16,7 @@ server.use(express.json());
 
 // Importing controllers
 server.use("/users", UserController);
+server.use("/lists", ListController);
 
 server.get("/", (req, res) => {
     res.send("Well, here we are, huh..?");
