@@ -1,6 +1,6 @@
 
 export const up = (knex: any) => knex.schema.createTable("todos", (todo: any) => {
-    todo.increments();
+    todo.increments("id");
     todo.integer("list_id")
         .references("id")
         .inTable("lists")

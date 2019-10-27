@@ -1,6 +1,6 @@
 
 export const up = (knex: any) => knex.schema.createTable("lists", (list: any) => {
-    list.increments();
+    list.increments("id");
     list.string("name")
         .notNullable();
     list.string("color_primary");
