@@ -1,4 +1,4 @@
-import db from "../data/dbConfig";
+import db from "../configs/dbConfig";
 import IUser from "../models/User";
 
 export const findAll = () => {
