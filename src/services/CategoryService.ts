@@ -7,6 +7,6 @@ export const findAll = () => {
     return db<ICategory>("categories");
 };
 
-export const findByList = (listid: string) => {
+export const findByListId = (listid: string) => {
     return db<ICategory>("categories").where("list_id", "=", listid);
 };
