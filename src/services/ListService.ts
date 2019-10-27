@@ -17,12 +17,12 @@ export const findByListId = (listid: string) => {
 export const findByUserId = async (userid: string) => {
     const linkingArr = await db<IUserList>("userlists").where("user_id", "=", userid);
 
-    const arrayOfListIds: number[] = linkingArr.map((userlist) => userlist.list_id);
+    const arrayOfListIds: number[] = linkingArr.map((userlist: any) => userlist.list_id);
 
     // Our desired SQL Query:
     // SELECT * FROM "lists" WHERE (id IN (...arrayOfListIds))
     //
     // In knex, we would type:
     return db<IList>("lists")
-        .where((builder) => builder.whereIn("id", arrayOfListIds));
+        .where((builder: any) => builder.whereIn("id", arrayOfListIds));
 };
