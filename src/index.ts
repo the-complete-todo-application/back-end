@@ -5,6 +5,7 @@ import express from "express";
 import helmet from "helmet";
 
 // Controllers
+import CategoryController from "./controllers/CategoryController";
 import ListController from "./controllers/ListController";
 import TodoController from "./controllers/TodoController";
 import UserController from "./controllers/UserController";
@@ -16,9 +17,10 @@ server.use(helmet());
 server.use(express.json());
 
 // Importing controllers
-server.use("/users", UserController);
+server.use("/categories", CategoryController);
 server.use("/lists", ListController);
 server.use("/todos", TodoController);
+server.use("/users", UserController);
 
 server.get("/", (req, res) => {
     res.send("Well, here we are, huh..?");
