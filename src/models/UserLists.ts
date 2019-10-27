@@ -8,6 +8,6 @@
  */
 export default interface IUserList {
     readonly id?: number;
-    userid: number;
-    listid: number;
+    user_id: number;
+    list_id: number;
 }
