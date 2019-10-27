@@ -8,11 +8,12 @@ export default interface ITodo {
     readonly id?: number;
 
     // Required
-    readonly group_id: number;
+    readonly list_id: number;
     name: string;
 
     // Optional
     category_id?: number;
     description?: string;
     due_date?: Date;
-};
+    completed: boolean;
+}
