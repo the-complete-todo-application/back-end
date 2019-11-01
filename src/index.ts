@@ -10,6 +10,9 @@ import ListController from "./controllers/ListController";
 import TodoController from "./controllers/TodoController";
 import UserController from "./controllers/UserController";
 
+// Error Handling
+import errorHandler from "./middleware/errorHandler";
+
 // Basic Server Setup
 const server = express();
 server.use(cors());
@@ -25,6 +28,13 @@ server.use("/users", UserController);
 server.get("/", (req, res) => {
     res.send("Well, here we are, huh..?");
 });
+
+// Final 404
+server.use("/", (req, res, next) => {
+    res.locals.errStatus = 404;
+    res.locals.details = "This endpoint seems to not exist!";
+    next();
+}, errorHandler);
 
 const port = process.env.PORT || 5000;
 server.listen(port, () => console.log(`\n***Listening on Port ${port}***\n`));
