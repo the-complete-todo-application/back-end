@@ -1,17 +1,34 @@
-import express from "express";
+import express, { NextFunction, Request, Response } from "express";
+import errorHandler from "../middleware/errorHandler";
+import validateListId from "../middleware/validateListId";
 import ICategory from "../models/Category";
 import * as categoryService from "../services/CategoryService";
 
 const router = express.Router();
 
-router.get("/all", async (req, res) => {
-    const allCategories: ICategory[] = await categoryService.findAll();
-    res.status(200).json(allCategories);
-});
+router.get("/all", async (req: Request, res: Response, next: NextFunction) => {
+    try {
+        const allCategories: ICategory[] = await categoryService.findAll();
+        res.status(200).json(allCategories);
+    } catch (err) {
+        console.log(err);
+        res.locals.errStatus = 500;
+        res.locals.details = "Internal Server Error x.x";
+        next();
+    }
+}, errorHandler);
 
-router.get("/byList/:listid", async (req, res) => {
-    const listCategories: ICategory[] = await categoryService.findByListId(req.params.listid);
-    res.status(200).json(listCategories);
-});
+router.get("/byList/:listid", validateListId, async (req: Request, res: Response, next: NextFunction) => {
+    // if (res.locals.errStatus) { return next(); } // Have an error? Go to the error handler!
+    try {
+        const listCategories: ICategory[] = await categoryService.findByListId(req.params.listid);
+        res.status(200).json(listCategories);
+    } catch (err) {
+        console.log(err);
+        res.locals.errStatus = 500;
+        res.locals.details = "Internal Server Error x.x";
+        next(res.locals);
+    }
+}, errorHandler);
 
 export default router;

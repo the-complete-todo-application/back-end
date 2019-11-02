@@ -6,17 +6,20 @@ import * as userService from "../services/UserService";
 const router = express.Router();
 
 
-router.get("/all", async (req, res, next) => {
+router.get("/all", async (req: Request, res: Response, next: NextFunction) => {
     console.log(res.locals);
     try {
         const result: IUser[] = await userService.findAll();
         res.status(200).json(result);
     } catch (err) {
         console.log(err);
-        res.locals.errStatus = 500;
-        res.locals.details = "Internal Server Error x.x";
-        next();
+        const error = {
+            errStatus: 500,
+            details: "Internal Server Error x.x",
+            stack: new Error().stack
+        };
+        next(error);
     }
-}, errorHandler);
+});
 
 export default router;

@@ -29,12 +29,9 @@ server.get("/", (req, res) => {
     res.send("Well, here we are, huh..?");
 });
 
-// Final 404
-server.use("/", (req, res, next) => {
-    res.locals.errStatus = 404;
-    res.locals.details = "This endpoint seems to not exist!";
-    next();
-}, errorHandler);
+// Error Handling
+server.use("/", errorHandler);
+server.use(errorHandler);
 
 const port = process.env.PORT || 5000;
 server.listen(port, () => console.log(`\n***Listening on Port ${port}***\n`));
