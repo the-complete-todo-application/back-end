@@ -4,10 +4,10 @@ import { IBasicError, IResError } from "../models/Error";
 export default function(err: IBasicError | undefined, req: Request, res: Response, next: NextFunction) {
 
     const errObj: IResError = {
-        status: err.status || 500,
+        status: err ? err.status : 500,
         method: req.method,
         endpoint: req.originalUrl,
-        details: err.details || "Internal Server Error x_x",
+        details: err ? err.details : "Internal Server Error x_x",
     };
 
     if (errObj.status === 500) {

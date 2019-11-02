@@ -5,7 +5,7 @@ import * as categoryService from "../services/CategoryService";
 
 const router = express.Router();
 
-router.get("/all", async (req: Request, res: Response, next: NextFunction) => {
+router.get("/", async (req: Request, res: Response, next: NextFunction) => {
     try {
         const allCategories: ICategory[] = await categoryService.findAll();
         res.status(200).json(allCategories);

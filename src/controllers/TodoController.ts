@@ -4,9 +4,14 @@ import * as todoService from "../services/TodoService";
 
 const router = express.Router();
 
-router.get("/all", async (req, res) => {
-    const allTodos: ITodo[] = await todoService.findAll();
-    res.status(200).json(allTodos);
+router.get("/", async (req, res, next) => {
+    try {
+        const allTodos: ITodo[] = await todoService.findAll();
+        res.status(200).json(allTodos);
+    } catch (err) {
+        console.log(err);
+        next(undefined);
+    }
 });
 
 router.get("/byTodoId/:todoid", async (req, res) => {

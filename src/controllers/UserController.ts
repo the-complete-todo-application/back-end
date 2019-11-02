@@ -6,7 +6,7 @@ import * as userService from "../services/UserService";
 const router = express.Router();
 
 
-router.get("/all", async (req: Request, res: Response, next: NextFunction) => {
+router.get("/", async (req: Request, res: Response, next: NextFunction) => {
     try {
         const result: IUser[] = await userService.findAll();
         res.status(200).json(result);
