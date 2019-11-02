@@ -1,7 +1,7 @@
 // Initial imports
 import cors from "cors";
 import "dotenv/config";
-import express from "express";
+import express, { NextFunction, Request, Response } from "express";
 import helmet from "helmet";
 
 // Controllers
@@ -30,7 +30,10 @@ server.get("/", (req, res) => {
 });
 
 // Error Handling
-server.use("/", errorHandler);
+server.use("/", (req: Request, res: Response, next: NextFunction) => {
+    const error = {errStatus: 404, details: "This endpoint doesn't exist! o.o"};
+    next(error);
+});
 server.use(errorHandler);
 
 const port = process.env.PORT || 5000;
