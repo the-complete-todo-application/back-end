@@ -1,5 +1,4 @@
 import express, { NextFunction, Request, Response } from "express";
-import errorHandler from "../middleware/errorHandler";
 import validateListId from "../middleware/validateListId";
 import ICategory from "../models/Category";
 import * as categoryService from "../services/CategoryService";
@@ -12,11 +11,9 @@ router.get("/all", async (req: Request, res: Response, next: NextFunction) => {
         res.status(200).json(allCategories);
     } catch (err) {
         console.log(err);
-        res.locals.errStatus = 500;
-        res.locals.details = "Internal Server Error x.x";
-        next();
+        next(undefined);
     }
-}, errorHandler);
+});
 
 router.get("/byList/:listid", validateListId, async (req: Request, res: Response, next: NextFunction) => {
     // if (res.locals.errStatus) { return next(); } // Have an error? Go to the error handler!
@@ -25,10 +22,8 @@ router.get("/byList/:listid", validateListId, async (req: Request, res: Response
         res.status(200).json(listCategories);
     } catch (err) {
         console.log(err);
-        res.locals.errStatus = 500;
-        res.locals.details = "Internal Server Error x.x";
-        next(res.locals);
+        next(undefined);
     }
-}, errorHandler);
+});
 
 export default router;
