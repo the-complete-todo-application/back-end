@@ -1,6 +1,6 @@
 import express from "express";
 import ITodo from "../interfaces/Todo";
-import * as todoService from "../services/TodoService";
+import * as todoService from "../models/TodoModel";
 
 const router = express.Router();
 

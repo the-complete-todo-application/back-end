@@ -1,9 +1,9 @@
 import express from "express";
 import IList from "../interfaces/List";
 import validateListId from "../middleware/validateListId";
-import * as categoryService from "../services/CategoryService";
-import * as listService from "../services/ListService";
-import * as todoService from "../services/TodoService";
+import * as categoryService from "../models/CategoryModel";
+import * as listService from "../models/ListModel";
+import * as todoService from "../models/TodoModel";
 
 const router = express.Router();
 

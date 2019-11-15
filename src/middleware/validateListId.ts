@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import { IBasicError } from "../interfaces/Error";
-import * as listService from "../services/ListService";
+import * as listService from "../models/ListModel";
 
 export default function(req: Request, res: Response, next: NextFunction) {
     const id = req.params.listid;

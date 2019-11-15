@@ -1,7 +1,7 @@
 import express, { NextFunction, Request, Response } from "express";
 import ICategory from "../interfaces/Category";
 import validateListId from "../middleware/validateListId";
-import * as categoryService from "../services/CategoryService";
+import * as categoryService from "../models/CategoryModel";
 
 const router = express.Router();
 
