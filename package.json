@@ -4,11 +4,15 @@
   "description": "Back-end server code for the-complete-todo-application.",
   "main": "dist/index.js",
   "scripts": {
-    "migrate": "knex migrate:latest --knexfile ./knexfile.ts",
-    "seed": "knex seed:run --knexfile ./knexfile.ts",
     "tslint": "tslint -c tslint.json -p tsconfig.json --fix",
+    
     "devv": "ts-node-dev --poll --no-notify index.ts",
     "start": "ts-node index.ts",
+
+    "migrate": "knex migrate:latest --knexfile ./knexfile.ts",
+    "seed": "knex seed:run --knexfile ./knexfile.ts",
+    
+    "migrate-testing": "knex migrate:latest --env=testing --knexfile ./knexfile.ts",
     "test": "echo \"Error: no tests specified.\" && exit 1"
   },
   "repository": {

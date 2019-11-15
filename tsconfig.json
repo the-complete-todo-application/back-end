@@ -12,5 +12,5 @@
             "*" : [ "node_modues/*" ]
         }
     },
-    "include": [ "src/**/*", "knexfile.ts" ]
+    "include": [ "src/**/*", "knexfile.ts", "index.ts" ]
 }

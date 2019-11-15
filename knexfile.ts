@@ -18,6 +18,20 @@ interface IConfigObject extends knex.Config {
 
 const databaseConfig: IConfigObject = {
 
+  testing: {
+    client: "sqlite3",
+    connection: {
+      filename: "./src/data/todoData_test.db3"
+    },
+    useNullAsDefault: true,
+    migrations: {
+      directory: "./src/data/migrations"
+    },
+    seeds: {
+      directory: "./src/data/seeds"
+    }
+  },
+
   development: {
     client: "sqlite3",
     connection: {
@@ -68,4 +82,4 @@ const databaseConfig: IConfigObject = {
 
 };
 
-export default databaseConfig;
+module.exports = databaseConfig;
