@@ -1,6 +1,22 @@
 import knex from "knex";
 
-module.exports = {
+/*
+  Our knex config object needs to match the 
+      knex.Config database.
+  BUT, if we want to call the object using 
+      bracket notation
+      ( databaseConfig["development"] )
+      then we need to specify an interface with
+      [key: string]: {};
+
+  The solution? Create an interface that extends
+      our knex.Config, and also allows key access.
+*/
+interface IConfigObject extends knex.Config {
+  [key: string]: {};
+}
+
+const databaseConfig: IConfigObject = {
 
   development: {
     client: "sqlite3",
@@ -50,4 +66,6 @@ module.exports = {
     }
   }
 
-} as knex.Config;
+};
+
+export default databaseConfig;

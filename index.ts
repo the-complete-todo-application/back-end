@@ -3,17 +3,17 @@ import cors from "cors";
 import "dotenv/config";
 import express, { NextFunction, Request, Response } from "express";
 import helmet from "helmet";
-import logger from "./middleware/logger";
+import logger from "./src/middleware/logger";
 
 // Controllers
-import CategoryController from "./controllers/CategoryController";
-import ListController from "./controllers/ListController";
-import TodoController from "./controllers/TodoController";
-import UserController from "./controllers/UserController";
+import CategoryController from "./src/controllers/CategoryController";
+import ListController from "./src/controllers/ListController";
+import TodoController from "./src/controllers/TodoController";
+import UserController from "./src/controllers/UserController";
 
 // Error Handling
-import { IBasicError } from "./interfaces/Error";
-import errorHandler from "./middleware/errorHandler";
+import { IBasicError } from "./src/interfaces/Error";
+import errorHandler from "./src/middleware/errorHandler";
 
 // Basic Server Setup
 const server = express();
