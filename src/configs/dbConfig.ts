@@ -1,5 +1,5 @@
 import knex from "knex";
-import knexConfig from "../../knexfile";
+const knexConfig = require("../../knexfile");
 
 const env = process.env.DB_ENV || "development";
 
