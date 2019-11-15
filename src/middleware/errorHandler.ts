@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from "express";
-import { IBasicError, IResError } from "../models/Error";
+import { IBasicError, IResError } from "../interfaces/Error";
 
 export default function(err: IBasicError | undefined, req: Request, res: Response, next: NextFunction) {
 

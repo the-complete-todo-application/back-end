@@ -1,4 +1,4 @@
-import IUser from "../../models/User";
+import IUser from "../../interfaces/User";
 
 const seedData: IUser[] = [
     {email: "d@g.c", first_name: "Devin", password: "1234", last_name: "Var"},

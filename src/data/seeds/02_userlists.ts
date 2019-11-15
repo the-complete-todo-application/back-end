@@ -1,4 +1,4 @@
-import IUserList from "../../models/UserLists";
+import IUserList from "../../interfaces/UserLists";
 
 const seedData: IUserList[] = [
     {user_id: 1, list_id: 1},

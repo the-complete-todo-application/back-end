@@ -1,5 +1,5 @@
 import express from "express";
-import ITodo from "../models/Todo";
+import ITodo from "../interfaces/Todo";
 import * as todoService from "../services/TodoService";
 
 const router = express.Router();

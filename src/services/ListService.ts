@@ -1,6 +1,6 @@
 import db from "../configs/dbConfig";
-import IList from "../models/List";
-import IUserList from "../models/UserLists";
+import IList from "../interfaces/List";
+import IUserList from "../interfaces/UserLists";
 
 // Should not be public on production.
 // Users should only be able to find lists that they have created.

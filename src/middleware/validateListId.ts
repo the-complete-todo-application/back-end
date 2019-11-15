@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from "express";
-import { IBasicError } from "../models/Error";
+import { IBasicError } from "../interfaces/Error";
 import * as listService from "../services/ListService";
 
 export default function(req: Request, res: Response, next: NextFunction) {
