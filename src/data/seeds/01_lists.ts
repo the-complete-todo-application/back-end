@@ -1,4 +1,4 @@
-import IList from "../../models/List";
+import IList from "../../interfaces/List";
 
 const seedData: IList[] = [
     {name: "Todos"},

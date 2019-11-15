@@ -1,4 +1,4 @@
-import ICategory from "../../models/Category";
+import ICategory from "../../interfaces/Category";
 
 const seedData: ICategory[] = [
     {list_id: 3, name: "Pets", color_primary: "#775533"},

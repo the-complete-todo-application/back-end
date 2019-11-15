@@ -1,6 +1,6 @@
 import express, { NextFunction, Request, Response } from "express";
-import { IBasicError } from "../models/Error";
-import IUser from "../models/User";
+import { IBasicError } from "../interfaces/Error";
+import IUser from "../interfaces/User";
 import * as userService from "../services/UserService";
 
 const router = express.Router();

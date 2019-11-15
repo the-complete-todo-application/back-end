@@ -1,5 +1,5 @@
 import db from "../configs/dbConfig";
-import ICategory from "../models/Category";
+import ICategory from "../interfaces/Category";
 
 // Should not be public on production.
 // Users should only be able to see categories tied to a specific list.
