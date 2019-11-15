@@ -1,16 +1,18 @@
+import knex from "knex";
+
 module.exports = {
 
   development: {
     client: "sqlite3",
     connection: {
-      filename: "./allData.db3"
+      filename: "./src/data/todoData.db3"
     },
     useNullAsDefault: true,
     migrations: {
-      directory: "./dist/data/migrations"
+      directory: "./src/data/migrations"
     },
     seeds: {
-      directory: "./dist/data/seeds"
+      directory: "./src/data/seeds"
     }
   },
   staging: {
@@ -48,4 +50,4 @@ module.exports = {
     }
   }
 
-}["development"];
+} as knex.Config;

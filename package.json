@@ -4,6 +4,8 @@
   "description": "Back-end server code for the-complete-todo-application.",
   "main": "dist/index.js",
   "scripts": {
+    "migrate": "knex migrate:latest --knexfile ./knexfile.ts",
+    "seed": "knex seed:run --knexfile ./knexfile.ts",
     "tslint": "tslint -c tslint.json -p tsconfig.json --fix",
     "devv": "ts-node-dev --poll --no-notify ./src/index.ts",
     "start": "ts-node .",
