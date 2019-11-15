@@ -6,10 +6,10 @@ import helmet from "helmet";
 import logger from "./src/middleware/logger";
 
 // Controllers
-import CategoryController from "./src/controllers/CategoryController";
-import ListController from "./src/controllers/ListController";
-import TodoController from "./src/controllers/TodoController";
-import UserController from "./src/controllers/UserController";
+import CategoryController from "./src/routes/CategoryRoute";
+import ListController from "./src/routes/ListRoute";
+import TodoController from "./src/routes/TodoRoute";
+import UserController from "./src/routes/UserRoute";
 
 // Error Handling
 import { IBasicError } from "./src/interfaces/Error";
