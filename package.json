@@ -10,7 +10,7 @@
     "migrate": "knex migrate:latest --knexfile ./knexfile.ts",
     "seed": "knex seed:run --knexfile ./knexfile.ts",
     "migrate-testing": "knex migrate:latest --env=testing --knexfile ./knexfile.ts",
-    "test": "jest",
+    "test": "cross-env DB_ENV=testing jest --watch",
     "coverage": "jest --coverage"
   },
   "jest": {
@@ -60,6 +60,7 @@
     "@types/jest": "^24.0.23",
     "@types/node": "^12.11.7",
     "@types/supertest": "^2.0.8",
+    "cross-env": "^6.0.3",
     "dotenv": "^8.2.0",
     "jest": "^24.9.0",
     "supertest": "^4.0.2",
