@@ -11,7 +11,7 @@
     "seed": "knex seed:run --knexfile ./knexfile.ts",
     "migrate-testing": "knex migrate:latest --env=testing --knexfile ./knexfile.ts",
     "test": "cross-env DB_ENV=testing jest --watch",
-    "coverage": "jest --coverage"
+    "coverage": "cross-env DB_ENV=testing jest --coverage"
   },
   "jest": {
     "moduleFileExtensions": [
