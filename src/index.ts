@@ -12,8 +12,8 @@ import TodoController from "./controllers/TodoController";
 import UserController from "./controllers/UserController";
 
 // Error Handling
+import { IBasicError } from "./interfaces/Error";
 import errorHandler from "./middleware/errorHandler";
-import { IBasicError } from "./models/Error";
 
 // Basic Server Setup
 const server = express();
