@@ -15,12 +15,12 @@ router.get("/", async (req, res, next) => {
 });
 
 router.get("/byTodoId/:todoid", async (req, res) => {
-    const todo: ITodo = await todoService.findById(req.params.todoid);
+    const todo: ITodo = await todoService.findById(Number(req.params.todoid));
     res.status(200).json(todo);
 });
 
 router.get("/byList/:listid", async (req, res) => {
-    const listTodos: ITodo[] = await todoService.findByList(req.params.listid);
+    const listTodos: ITodo[] = await todoService.findByList(Number(req.params.listid));
     res.status(200).json(listTodos);
 });
 

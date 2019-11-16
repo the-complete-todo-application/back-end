@@ -1,15 +1,34 @@
-import { Request, RequestHandler } from "express";
+import { Request, Response } from "express";
 import { IResError } from "../../src/interfaces/Error";
 import errorHandler from "../../src/middleware/errorHandler";
 import { IReqMock, IResMock } from "../interfaces/mocks";
 
-const resMock = jest.fn(() => {
+const resMock = () => {
     const res: IResMock = {
-        status: (status: number) => this,
-        json: (body: IResError) => this
+        status: jest.fn((status: number) => res),
+        json: jest.fn((body: IResError) => res)
     };
-    return res as unknown as Request;
-});
+    return res as unknown as Response;
+};
+
+/**
+ * Call this function to create an empty error object.
+ * Then fill it in with the expected properties.
+ * 
+ * Undefined properties are `method`, `endpoint`,
+ * `devMessage`, `source`, and `params`.
+ */
+const errObjTemplate = (): IResError => {
+    return {
+        status: 500,
+        method: undefined,
+        endpoint: undefined,
+        details: "Internal Server Error x_x",
+        devMessage: undefined,
+        source: undefined,
+        params: undefined
+    };
+};
 
 
 test("We're in the testing environment", () => {
@@ -17,10 +36,14 @@ test("We're in the testing environment", () => {
 });
 
 describe("errorHandler", () => {
-    test("No error will throw a 500 Internal Service Error", async () => {
+    test("No error will throw a 500 Internal Server Error", async () => {
         const expectedStatus = 500;
-        const expectedDetails = "Internal Server Error x_x";
+        const expectedErr = errObjTemplate();
+        const res = resMock();
 
-        const response = await errorHandler(null, {} as Request, resMock, () => {;});
+        errorHandler({}, {} as Request, res, null);
+
+        expect(res.status).toBeCalledWith(expectedStatus);
+        expect(res.json).toBeCalledWith(expectedErr);
     });
 });

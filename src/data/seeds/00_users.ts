@@ -1,6 +1,6 @@
 import IUser from "../../interfaces/User";
 
-const seedData: IUser[] = [
+export const seedData: IUser[] = [
     {email: "d@g.c", first_name: "Devin", password: "1234", last_name: "Var"},
     {email: "j@g.c", first_name: "John", password: "1234"},
     {email: "e@g.c", first_name: "Mary", password: "1234"},

@@ -1,6 +1,6 @@
 import ITodo from "../../interfaces/Todo";
 
-const seedData: ITodo[] = [
+export const seedData: ITodo[] = [
     {completed: false, list_id: 3, name: "Take out Trash", category_id: 2},
     {
         completed: false,

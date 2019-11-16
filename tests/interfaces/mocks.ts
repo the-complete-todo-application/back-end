@@ -6,6 +6,8 @@ export interface IResMock {
 }
 
 export interface IReqMock {
-    params: {[key: string]: string};
-    body: {[key: string]: any};
+    method: string;
+    originalUrl: string;
+    params?: {[key: string]: string};
+    body?: {[key: string]: any};
 }
