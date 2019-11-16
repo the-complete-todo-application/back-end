@@ -5,6 +5,10 @@ import { IResError } from "../interfaces/Error";
 const errorHandler = (err: any, req: Request, res: Response, next: NextFunction) => {
     console.log("type: ", typeof err);
     console.log("Error?: ", err instanceof Error);
+
+    // TODO: These if statments below don't always work...
+    // Check if you can find where they fail.
+
     // If there is an error with the JSON object received, this will write the error
     //     message to the details property :thumbsup:
     if (!!err.statusCode) { err.details = err.toString(); }
