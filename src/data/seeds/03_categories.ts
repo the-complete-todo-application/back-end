@@ -1,6 +1,6 @@
 import ICategory from "../../interfaces/Category";
 
-const seedData: ICategory[] = [
+export const seedData: ICategory[] = [
     {list_id: 3, name: "Pets", color_primary: "#775533"},
     {list_id: 3, name: "Home", color_primary: "#2244DD"},
     {list_id: 4, name: "Nintendo", color_primary: "#775533"},

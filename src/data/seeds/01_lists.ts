@@ -1,6 +1,6 @@
 import IList from "../../interfaces/List";
 
-const seedData: IList[] = [
+export const seedData: IList[] = [
     {name: "Todos"},
     {name: "Groceries"},
     {name: "Chores", color_primary: "EEEEEE", color_secondary: "222222"},

@@ -38,7 +38,7 @@ router.get("/fullyFormattedList/:listid", async (req, res, next) => {
         const formattedList: IList = {
             ...res.locals.list,
             categories: await categoryService.findByListId(listid),
-            todos: await todoService.findByList(listid)
+            todos: await todoService.findByList(Number(listid))
         };
         res.status(200).json(formattedList);
     } catch (err) {

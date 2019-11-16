@@ -1,6 +1,6 @@
 import IUserList from "../../interfaces/UserLists";
 
-const seedData: IUserList[] = [
+export const seedData: IUserList[] = [
     {user_id: 1, list_id: 1},
     {user_id: 1, list_id: 6},
     {user_id: 2, list_id: 2},

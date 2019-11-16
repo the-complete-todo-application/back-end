@@ -10,7 +10,7 @@ jest.mock("../src/middleware/errorHandler", () => {
 
 test("We're in the testing environment", () => {
     expect(process.env.DB_ENV).toBe("testing");
-})
+});
 
 describe("Get \"/\"", () => {
     test("Receive 200 with text", async () => {

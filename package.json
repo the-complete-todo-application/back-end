@@ -28,7 +28,7 @@
       }
     },
     "testMatch": [
-      "**/tests/*.+(ts|tsx|js)"
+      "**/tests/**/?(*.)+(spec|test).(ts|tsx|js)"
     ]
   },
   "repository": {

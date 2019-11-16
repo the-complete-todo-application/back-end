@@ -7,10 +7,10 @@ export const findAll = () => {
     return db<ITodo>("todos");
 };
 
-export const findById = (todoid: string) => {
+export const findById = (todoid: number) => {
     return db<ITodo>("todos").where("id", "=", todoid).first();
 };
 
-export const findByList = (listid: string) => {
+export const findByList = (listid: number) => {
     return db<ITodo>("todos").where("list_id", "=", listid);
 };
