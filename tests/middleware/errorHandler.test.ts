@@ -36,14 +36,70 @@ test("We're in the testing environment", () => {
 });
 
 describe("errorHandler", () => {
-    test("No error will throw a 500 Internal Server Error", async () => {
+
+    test("No error will throw a 500 status", () => {
         const expectedStatus = 500;
-        const expectedErr = errObjTemplate();
         const res = resMock();
 
         errorHandler({}, {} as Request, res, null);
 
         expect(res.status).toBeCalledWith(expectedStatus);
+    });
+
+    test("Basic 400 response", () => {
+        const expectedStatus = 400;
+        const res = resMock();
+        const err = {status: 400, details: "You must send a body with this request!"};
+        const expectedErr = {
+            ...errObjTemplate(), 
+            status: expectedStatus, 
+            details: "You must send a body with this request!"
+        };
+
+        errorHandler(err, {} as Request, res, null);
+
+        expect(res.status).toBeCalledWith(expectedStatus);
         expect(res.json).toBeCalledWith(expectedErr);
     });
+
+    test("Example 401 response", () => {
+        const expectedStatus = 401;
+        const res = resMock();
+        const err = {
+            status: 401, 
+            details: "You're missing some things on this request!",
+            params: "username, password"
+        };
+        const expectedErr = {
+            ...errObjTemplate(),
+            status: expectedStatus,
+            details: "You're missing some things on this request!",
+            params: "username, password"
+        };
+
+        errorHandler(err, {} as Request, res, null);
+
+        expect(res.status).toBeCalledWith(expectedStatus);
+        expect(res.json).toBeCalledWith(expectedErr);
+    });
+
+    test("Example 404 response", () => {
+        const expectedStatus = 404;
+        const res = resMock();
+        const err = {
+            status: 404, 
+            details: "We could not find anything. Sorry.",
+        };
+        const expectedErr = {
+            ...errObjTemplate(),
+            status: expectedStatus,
+            details: "We could not find anything. Sorry.",
+        };
+
+        errorHandler(err, {} as Request, res, null);
+
+        expect(res.status).toBeCalledWith(expectedStatus);
+        expect(res.json).toBeCalledWith(expectedErr);
+    });
+
 });
