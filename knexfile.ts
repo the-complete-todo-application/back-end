@@ -29,6 +29,17 @@ const databaseConfig: IConfigObject = {
     },
     seeds: {
       directory: "./src/data/seeds"
+    },
+    pool: {
+      afterCreate: (conn: any, done: any) => {
+        conn.run("PRAGMA foreign_keys = ON", (err: any) => {
+          if (err) {
+            done(err, conn);
+          } else {
+            conn.run("PRAGMA journal_mode = OFF", done);
+          }
+        });
+      }
     }
   },
 
@@ -43,8 +54,14 @@ const databaseConfig: IConfigObject = {
     },
     seeds: {
       directory: "./src/data/seeds"
+    },
+    pool: {
+      afterCreate: (conn: any, done: any) => {
+        conn.run("PRAGMA foreign_keys = ON", done);
+      }
     }
   },
+
   staging: {
     client: "postgresql",
     connection: {
