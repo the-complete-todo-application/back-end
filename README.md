@@ -13,3 +13,5 @@ And of course, typescript.
 - **`npm run migrate-testing`** - Calls knex to run migrations of the _testing_ database. If you plan to run any tests, make sure to run this to make sure you have a database file set up!
 - **`npm test`** - Runs any tests within the tests folder using a test database.
 - **`npm run converage`** - Calls jest coverage to run tests and see coverage of the application.
+
+The scripts are subject to change. Amke sure to always check the `README.md`!
