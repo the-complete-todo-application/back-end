@@ -18,7 +18,7 @@ export const up = (knex: any) =>
       .unsigned()
       .references("id")
       .inTable("categories")
-      .onDelete("CASCADE")
+      .onDelete("SET NULL")
       .onUpdate("CASCADE");
   });
 
